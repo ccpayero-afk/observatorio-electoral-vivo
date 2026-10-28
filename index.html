@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Observatorio Electoral</title>
+<meta name="description" content="Seguimiento del conteo electoral en vivo. Observatorio Electoral, FCEJS, UNSL.">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<!-- Esqueleto común a todos los países: los textos, pestañas, fuerzas y mapas salen de
+     paises/<codigo>.json (por defecto us; otro país con ?pais=<codigo>). -->
+<header class="cabecera">
+  <div>
+    <p class="sobretitulo" id="sobretitulo"></p>
+    <h1 id="titulo">Cargando…</h1>
+    <p class="estado-gen" id="estado-gen">Cargando…</p>
+  </div>
+  <p class="atribucion" id="atribucion"></p>
+</header>
+
+<div id="aviso" class="aviso" hidden></div>
+
+<section id="barra-laboratorio" class="barra-lab" hidden></section>
+
+<nav class="pestanas" id="pestanas" role="tablist"></nav>
+
+<main>
+  <div id="controles-mapa" class="controles-mapa">
+    <label class="filtro filtro-ancho">Qué muestran los mapas
+      <select id="modo-mapa"></select>
+    </label>
+  </div>
+
+  <section id="p-mapas" class="panel-mapas">
+    <figure class="mapa">
+      <div class="cabecera-figura">
+        <figcaption id="titulo-nacional"></figcaption>
+        <div id="exportar-nacional"></div>
+      </div>
+      <svg id="mapa-nacional" viewBox="0 0 975 610" role="img" aria-label="Mapa por región"></svg>
+      <div class="leyenda" id="leyenda"></div>
+    </figure>
+    <figure class="mapa">
+      <div class="cabecera-figura">
+        <figcaption id="titulo-condados"></figcaption>
+        <div id="exportar-condados"></div>
+      </div>
+      <svg id="mapa-condados" viewBox="0 0 975 610" role="img" aria-label="Mapa por unidad"></svg>
+    </figure>
+  </section>
+
+  <section id="detalle" class="detalle" hidden></section>
+
+  <div data-panel-filtros class="filtros-estados-env">
+    <details class="rangos" open>
+      <summary>Filtrar</summary>
+      <div id="filtros-estados" class="filtros"></div>
+    </details>
+  </div>
+
+  <section data-panel="cargo">
+    <h2 id="titulo-carreras"></h2>
+    <div id="t-carreras-pie" class="pie-tabla"></div>
+    <div class="tabla-env"><table id="t-carreras"></table></div>
+  </section>
+  <section data-panel="secundarias" hidden>
+    <h2 id="titulo-secundarias"></h2>
+    <p class="nota" id="nota-secundarias"></p>
+    <div id="secundarias-resumen" class="tarjetas"></div>
+    <div id="t-secundarias-pie" class="pie-tabla"></div>
+    <div class="tabla-env"><table id="t-secundarias"></table></div>
+  </section>
+  <section data-panel="analisis" hidden>
+    <h2>Análisis</h2>
+    <p class="nota" id="intro-analisis">Explorá los resultados por lugar y cruzalos con datos de población. Todo lo que ves se puede descargar.</p>
+    <div id="analisis"></div>
+  </section>
+  <section data-panel="cobertura" hidden>
+    <h2>Cobertura y fuente por elección</h2>
+    <p class="nota">Cobertura con unidades indica resultados por unidad geográfica; <em>solo total</em>, que la fuente no los informa; <em>sin datos</em>, que no hubo respuesta.</p>
+    <div id="t-cobertura-pie" class="pie-tabla"></div>
+    <div class="tabla-env"><table id="t-cobertura"></table></div>
+  </section>
+  <section data-panel="metodo" hidden class="texto" id="metodo"></section>
+</main>
+
+<div id="tooltip" class="tooltip" role="tooltip" hidden></div>
+
+<footer class="pie">
+  <p id="pie"></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script src="comun.js"></script>
+<script src="app.js"></script>
+<script src="analisis.js"></script>
+</body>
+</html>

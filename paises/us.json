@@ -1,0 +1,83 @@
+{
+  "codigo": "us",
+  "sobretitulo": "Observatorio Electoral · FCEJS · UNSL",
+  "titulo": "Elecciones de medio término de EE.UU. · 3 de noviembre de 2026",
+  "atribucion": "Datos: [CivicAPI](https://civicapi.org) y sitios oficiales de los estados. Resultados no certificados.",
+  "pie": "Observatorio Social · Facultad de Ciencias Económicas, Jurídicas y Sociales · Universidad Nacional de San Luis. Datos: [CivicAPI](https://civicapi.org). Proyección experimental, no es una declaración de resultados.",
+  "unidad": { "singular": "condado", "plural": "condados", "codigo": "FIPS", "ejemplo": "Maricopa" },
+  "region": { "singular": "estado", "plural": "estados", "ejemplo": "Georgia" },
+  "agrupacion_regiones": { "campo": "region_censal", "etiqueta": "Región" },
+  "geometria": {
+    "url": "https://cdn.jsdelivr.net/npm/us-atlas@3.0.1/counties-albers-10m.json",
+    "objeto_regiones": "states",
+    "objeto_unidades": "counties",
+    "proyectada": true,
+    "region_de_unidad": { "tipo": "prefijo", "largo": 2 },
+    "nota": "Mapas del Census Bureau vía us-atlas."
+  },
+  "bloques": [
+    { "id": "dem", "nombre": "Demócrata", "plural": "demócratas", "corto": "Dem.", "color": "#1c5cab", "color_oscuro": "#5598e7" },
+    { "id": "rep", "nombre": "Republicano", "plural": "republicanos", "corto": "Rep.", "color": "#c03535", "color_oscuro": "#e66767" },
+    { "id": "otros", "nombre": "Otros", "plural": "otros", "corto": "Otros", "color": "#74736d", "color_oscuro": "#9a998f" }
+  ],
+  "par": ["dem", "rep"],
+  "referencia_nombre": "presidencial",
+  "pestanas": [
+    { "id": "senado", "titulo": "Senado", "cargo": "US Senate" },
+    { "id": "gobernaciones", "titulo": "Gobernaciones", "cargo": "Governor" }
+  ],
+  "secundarias": {
+    "titulo": "Cámara de Representantes",
+    "columna": "Distrito",
+    "nota": "Sin proyección: varios estados redibujaron sus distritos y no hay una referencia 2024 válida por distrito. Se muestra el conteo por distrito y el voto agregado por partido de los distritos leídos."
+  },
+  "variables": [
+    { "id": "poblacion", "et": "Habitantes", "formato": "int", "log": true },
+    { "id": "densidad", "et": "Habitantes por km²", "formato": "int", "log": true },
+    { "id": "ingreso_mediano", "et": "Ingreso mediano del hogar (US$)", "formato": "usd" },
+    { "id": "pct_universitario", "et": "% con título universitario", "formato": "pct" },
+    { "id": "pct_hispano", "et": "% hispano", "formato": "pct" },
+    { "id": "pct_negro_nh", "et": "% negro no hispano", "formato": "pct" },
+    { "id": "pct_blanco_nh", "et": "% blanco no hispano", "formato": "pct" },
+    { "id": "pct_asiatico_nh", "et": "% asiático no hispano", "formato": "pct" },
+    { "id": "edad_mediana", "et": "Edad mediana", "formato": "dec" }
+  ],
+  "columnas_caracteristicas": ["poblacion", "densidad", "ingreso_mediano", "pct_universitario", "pct_hispano", "pct_negro_nh", "edad_mediana"],
+  "atajos": [
+    { "id": "escrutado20", "texto": "20% o más escrutado", "cond": [{ "v": "avance", "min": 20 }] },
+    { "id": "rural", "texto": "Rurales (hasta 50 hab/km²)", "cond": [{ "v": "densidad", "max": 50 }] },
+    { "id": "urbano", "texto": "Urbanos (500 hab/km² o más)", "cond": [{ "v": "densidad", "min": 500 }] },
+    { "id": "grandes", "texto": "Más de 100.000 habitantes", "cond": [{ "v": "poblacion", "min": 100000 }] },
+    { "id": "hispano", "texto": "Mayoría hispana", "cond": [{ "v": "pct_hispano", "min": 50 }] },
+    { "id": "negro", "texto": "30% o más población negra", "cond": [{ "v": "pct_negro_nh", "min": 30 }] },
+    { "id": "universitario", "texto": "40% o más universitarios", "cond": [{ "v": "pct_universitario", "min": 40 }] },
+    { "id": "disputado", "texto": "Disputados en la referencia (diferencia menor a 10)", "cond": [{ "v": "dif_ref", "min": -10, "max": 10 }] }
+  ],
+  "preguntas": [
+    { "texto": "¿El voto cambió distinto según el nivel educativo?", "x": "pct_universitario", "y": "swing" },
+    { "texto": "¿Cómo votan los lugares según su densidad?", "x": "densidad", "y": "dif" },
+    { "texto": "¿Dónde se movió el voto hispano?", "x": "pct_hispano", "y": "swing" },
+    { "texto": "¿Cómo se relaciona el ingreso con el voto?", "x": "ingreso_mediano", "y": "dif" },
+    { "texto": "¿Se repite el resultado de la referencia?", "x": "dif_ref", "y": "dif" },
+    { "texto": "¿Dónde va más adelantado el conteo?", "x": "densidad", "y": "avance" }
+  ],
+  "grupos": [
+    { "v": "densidad", "texto": "Densidad (de rural a urbano)" },
+    { "v": "pct_universitario", "texto": "Nivel educativo" },
+    { "v": "ingreso_mediano", "texto": "Ingreso" },
+    { "v": "pct_hispano", "texto": "Población hispana" },
+    { "v": "pct_negro_nh", "texto": "Población negra" },
+    { "v": "edad_mediana", "texto": "Edad" },
+    { "v": "poblacion", "texto": "Tamaño" }
+  ],
+  "fuente_atributos": "Census Bureau, ACS 2020-2024",
+  "metodo": [
+    "El observatorio no declara ganadores. La página muestra el conteo informado por las fuentes, su avance y, en las elecciones al Senado y a gobernación con resultados por condado, una proyección experimental con su banda de incertidumbre.",
+    "La proyección reimplementa la metodología de Quiroga, Etchenique y Schteingart para Brasil 2026. Estima los votos que faltan en cada condado a partir del cambio de cada partido respecto de la elección presidencial de 2024, con efectos geográficos por región censal y estado. Solo se publica cuando se contó al menos el 20% de los votos esperados del estado y hay datos de un tercio de los condados.",
+    "La fuente principal no separa el voto por correo, anticipado y del día de la elección, que suelen votar distinto y llegan en momentos diferentes. Por eso la banda es ancha al comienzo del conteo, y puede quedar corta si el orden de llegada está sesgado dentro de un estado.",
+    "El cambio respecto de la referencia (swing) es la variación de la diferencia entre demócratas y republicanos respecto de la presidencial de referencia en el mismo lugar. Mientras el conteo avanza, el cambio de un condado refleja solo lo contado hasta ese momento.",
+    "En Maine y Alaska el Senado se elige por voto por orden de preferencia, de modo que la primera ronda no es el resultado final. En Georgia, si nadie supera el 50% hay segunda vuelta; la página informa una probabilidad aproximada de que eso ocurra.",
+    "Las relaciones entre variables de la pestaña de análisis comparan lugares, no personas: que los condados con más universitarios voten de cierta manera no implica que los universitarios lo hagan (falacia ecológica).",
+    "Datos de [CivicAPI](https://civicapi.org), cuyo operador no está identificado, contrastados donde es posible con los sitios oficiales de los estados. Referencias presidenciales 2020 y 2024 por condado de tonmcg/US_County_Level_Election_Results_08-24. Datos socioeconómicos del Census Bureau (ACS 2020-2024 y Gazetteer 2024). Mapas del Census Bureau vía us-atlas."
+  ]
+}
