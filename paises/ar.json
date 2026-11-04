@@ -1,0 +1,523 @@
+{
+  "codigo": "ar",
+  "sobretitulo": "Observatorio Electoral · FCEJS · UNSL",
+  "titulo": "Argentina · resultados por departamento",
+  "atribucion": "Datos: [Dirección Nacional Electoral](https://datos.gob.ar), escrutinio provisorio por mesa; [INDEC](https://www.indec.gob.ar), Censo 2022; [IGN](https://www.ign.gob.ar) vía Georef.",
+  "pie": "Observatorio Social · Facultad de Ciencias Económicas, Jurídicas y Sociales · Universidad Nacional de San Luis. Datos: DINE (escrutinio provisorio), INDEC (Censo 2022) e IGN. Los casos históricos revelan resultados reales por mesa con un orden de llegada simulado; la proyección es experimental.",
+  "unidad": {
+    "singular": "departamento",
+    "plural": "departamentos",
+    "codigo": "INDEC",
+    "ejemplo": "La Matanza",
+    "articulo": "el",
+    "indefinido": "un"
+  },
+  "region": {
+    "singular": "provincia",
+    "plural": "provincias",
+    "ejemplo": "San Luis",
+    "articulo": "la",
+    "indefinido": "una"
+  },
+  "agrupacion_regiones": {
+    "campo": "region_geo",
+    "etiqueta": "Región"
+  },
+  "geometria": {
+    "url": "paises/ar-mapa.json",
+    "objeto_regiones": "provincias",
+    "objeto_unidades": "departamentos",
+    "proyectada": false,
+    "region_de_unidad": {
+      "tipo": "prefijo",
+      "largo": 2
+    },
+    "nota": "Límites del IGN vía Georef (datos.gob.ar, CC-BY 4.0). Se omiten la Antártida y las Georgias y Sandwich del Sur para la escala del mapa."
+  },
+  "bloques": [
+    {
+      "id": "peronismo",
+      "nombre": "Peronismo (FpV · FdT · UxP · FP)",
+      "plural": "peronismo",
+      "corto": "Peron.",
+      "color": "#2b6cb0",
+      "color_oscuro": "#6ea8e8"
+    },
+    {
+      "id": "cambiemos",
+      "nombre": "Cambiemos · Juntos por el Cambio",
+      "plural": "Cambiemos/JxC",
+      "corto": "JxC",
+      "color": "#b8860b",
+      "color_oscuro": "#e3b341"
+    },
+    {
+      "id": "libertarios",
+      "nombre": "La Libertad Avanza",
+      "plural": "La Libertad Avanza",
+      "corto": "LLA",
+      "color": "#6b3fa0",
+      "color_oscuro": "#a77fd6"
+    },
+    {
+      "id": "izquierda",
+      "nombre": "Frente de Izquierda",
+      "plural": "Frente de Izquierda",
+      "corto": "FIT",
+      "color": "#c03535",
+      "color_oscuro": "#e66767"
+    },
+    {
+      "id": "otros",
+      "nombre": "Otros",
+      "plural": "otros",
+      "corto": "Otros",
+      "color": "#74736d",
+      "color_oscuro": "#9a998f"
+    }
+  ],
+  "referencia_nombre": "",
+  "pestanas": [
+    {
+      "id": "resultados",
+      "titulo": "Resultados",
+      "cargo": "*"
+    }
+  ],
+  "variables": [
+    {
+      "id": "poblacion",
+      "et": "Habitantes (2022)",
+      "formato": "int",
+      "log": true
+    },
+    {
+      "id": "densidad",
+      "et": "Habitantes por km²",
+      "formato": "int",
+      "log": true
+    },
+    {
+      "id": "crecimiento",
+      "et": "Variación de la población 2010-2022 (%)",
+      "formato": "pct"
+    },
+    {
+      "id": "pct_universitario",
+      "et": "% con universitario completo (25 años y más)",
+      "formato": "pct"
+    },
+    {
+      "id": "pct_sin_secundario",
+      "et": "% sin secundario completo (25 años y más)",
+      "formato": "pct"
+    },
+    {
+      "id": "pct_sin_cobertura",
+      "et": "% solo con cobertura pública de salud",
+      "formato": "pct"
+    },
+    {
+      "id": "tasa_desocupacion",
+      "et": "Tasa de desocupación (%)",
+      "formato": "pct"
+    },
+    {
+      "id": "tasa_empleo",
+      "et": "Tasa de empleo (%)",
+      "formato": "pct"
+    },
+    {
+      "id": "pct_jubilacion",
+      "et": "% que cobra jubilación o pensión",
+      "formato": "pct"
+    },
+    {
+      "id": "pct_65",
+      "et": "% de 65 años y más",
+      "formato": "pct"
+    },
+    {
+      "id": "pct_16_29",
+      "et": "% de 16 a 29 años",
+      "formato": "pct"
+    },
+    {
+      "id": "edad_mediana",
+      "et": "Edad mediana",
+      "formato": "dec"
+    },
+    {
+      "id": "pct_internet",
+      "et": "% de hogares con internet",
+      "formato": "pct"
+    },
+    {
+      "id": "participacionref",
+      "et": "Participación en la referencia (%)",
+      "formato": "pct"
+    },
+    {
+      "id": "pct_peronismo_p11",
+      "et": "% peronismo, presidencial 2011",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_izquierda_p11",
+      "et": "% izquierda, presidencial 2011",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "participacion_p11",
+      "et": "Participación, presidencial 2011 (%)",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_peronismo_p15",
+      "et": "% peronismo, presidencial 2015",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_cambiemos_p15",
+      "et": "% Cambiemos/JxC, presidencial 2015",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_izquierda_p15",
+      "et": "% izquierda, presidencial 2015",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "participacion_p15",
+      "et": "Participación, presidencial 2015 (%)",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_peronismo_b15",
+      "et": "% peronismo, balotaje 2015",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_cambiemos_b15",
+      "et": "% Cambiemos/JxC, balotaje 2015",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_izquierda_b15",
+      "et": "% izquierda, balotaje 2015",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "participacion_b15",
+      "et": "Participación, balotaje 2015 (%)",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_peronismo_p19",
+      "et": "% peronismo, presidencial 2019",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_cambiemos_p19",
+      "et": "% Cambiemos/JxC, presidencial 2019",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_izquierda_p19",
+      "et": "% izquierda, presidencial 2019",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "participacion_p19",
+      "et": "Participación, presidencial 2019 (%)",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_peronismo_d21",
+      "et": "% peronismo, diputados 2021",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_cambiemos_d21",
+      "et": "% Cambiemos/JxC, diputados 2021",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_libertarios_d21",
+      "et": "% LLA, diputados 2021",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_izquierda_d21",
+      "et": "% izquierda, diputados 2021",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "participacion_d21",
+      "et": "Participación, diputados 2021 (%)",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_peronismo_p23",
+      "et": "% peronismo, presidencial 2023",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_cambiemos_p23",
+      "et": "% Cambiemos/JxC, presidencial 2023",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_libertarios_p23",
+      "et": "% LLA, presidencial 2023",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_izquierda_p23",
+      "et": "% izquierda, presidencial 2023",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "participacion_p23",
+      "et": "Participación, presidencial 2023 (%)",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_peronismo_b23",
+      "et": "% peronismo, balotaje 2023",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_cambiemos_b23",
+      "et": "% Cambiemos/JxC, balotaje 2023",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_libertarios_b23",
+      "et": "% LLA, balotaje 2023",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_izquierda_b23",
+      "et": "% izquierda, balotaje 2023",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "participacion_b23",
+      "et": "Participación, balotaje 2023 (%)",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_peronismo_d25",
+      "et": "% peronismo, diputados 2025",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_libertarios_d25",
+      "et": "% LLA, diputados 2025",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "pct_izquierda_d25",
+      "et": "% izquierda, diputados 2025",
+      "formato": "pct",
+      "grupo": "historico"
+    },
+    {
+      "id": "participacion_d25",
+      "et": "Participación, diputados 2025 (%)",
+      "formato": "pct",
+      "grupo": "historico"
+    }
+  ],
+  "columnas_caracteristicas": [
+    "poblacion",
+    "densidad",
+    "pct_universitario",
+    "pct_sin_cobertura",
+    "tasa_desocupacion",
+    "pct_65",
+    "pct_internet"
+  ],
+  "atajos": [
+    {
+      "id": "escrutado20",
+      "texto": "20% o más escrutado",
+      "cond": [
+        {
+          "v": "avance",
+          "min": 20
+        }
+      ]
+    },
+    {
+      "id": "rural",
+      "texto": "Rurales (hasta 10 hab/km²)",
+      "cond": [
+        {
+          "v": "densidad",
+          "max": 10
+        }
+      ]
+    },
+    {
+      "id": "urbano",
+      "texto": "Urbanos (1.000 hab/km² o más)",
+      "cond": [
+        {
+          "v": "densidad",
+          "min": 1000
+        }
+      ]
+    },
+    {
+      "id": "grandes",
+      "texto": "Más de 200.000 habitantes",
+      "cond": [
+        {
+          "v": "poblacion",
+          "min": 200000
+        }
+      ]
+    },
+    {
+      "id": "chicos",
+      "texto": "Menos de 20.000 habitantes",
+      "cond": [
+        {
+          "v": "poblacion",
+          "max": 20000
+        }
+      ]
+    },
+    {
+      "id": "cobertura",
+      "texto": "Mitad o más solo con salud pública",
+      "cond": [
+        {
+          "v": "pct_sin_cobertura",
+          "min": 50
+        }
+      ]
+    },
+    {
+      "id": "universitario",
+      "texto": "15% o más universitarios",
+      "cond": [
+        {
+          "v": "pct_universitario",
+          "min": 15
+        }
+      ]
+    },
+    {
+      "id": "envejecidos",
+      "texto": "15% o más de 65 años y más",
+      "cond": [
+        {
+          "v": "pct_65",
+          "min": 15
+        }
+      ]
+    }
+  ],
+  "preguntas": [
+    {
+      "texto": "¿Cómo votaron los departamentos según su nivel educativo?",
+      "x": "pct_universitario",
+      "y": "p_libertarios"
+    },
+    {
+      "texto": "¿Se relaciona la cobertura de salud con el voto peronista?",
+      "x": "pct_sin_cobertura",
+      "y": "p_peronismo"
+    },
+    {
+      "texto": "¿Dónde cambió más el peronismo respecto de la referencia?",
+      "x": "densidad",
+      "y": "cambio_peronismo"
+    },
+    {
+      "texto": "¿El voto se parece al de la presidencial 2019?",
+      "x": "pct_peronismo_p19",
+      "y": "p_peronismo"
+    },
+    {
+      "texto": "¿Cómo votan los lugares con más jóvenes?",
+      "x": "pct_16_29",
+      "y": "p_libertarios"
+    },
+    {
+      "texto": "¿Dónde va más adelantado el conteo?",
+      "x": "poblacion",
+      "y": "avance"
+    }
+  ],
+  "grupos": [
+    {
+      "v": "densidad",
+      "texto": "Densidad (de rural a urbano)"
+    },
+    {
+      "v": "pct_universitario",
+      "texto": "Nivel educativo"
+    },
+    {
+      "v": "pct_sin_cobertura",
+      "texto": "Cobertura de salud"
+    },
+    {
+      "v": "tasa_desocupacion",
+      "texto": "Desocupación"
+    },
+    {
+      "v": "pct_65",
+      "texto": "Envejecimiento"
+    },
+    {
+      "v": "poblacion",
+      "texto": "Tamaño"
+    }
+  ],
+  "fuente_atributos": "INDEC, Censo 2022 (resultados definitivos)",
+  "metodo": [
+    "El observatorio no declara ganadores. Los casos históricos usan el escrutinio provisorio de la Dirección Nacional Electoral por mesa, que no es el resultado oficial definitivo (escrutinio de la Justicia Nacional Electoral).",
+    "En cada caso, los resultados reales de cada mesa se revelan con un orden de llegada simulado: cada departamento empieza a informar en un momento distinto y, dentro de él, las mesas llegan al azar. No es el orden real de esa noche. El laboratorio permite ver el conteo y la proyección en cada nivel de escrutinio.",
+    "La proyección reimplementa la metodología de Quiroga, Etchenique y Schteingart para Brasil 2026. Estima los votos que faltan en cada departamento a partir del cambio de cada fuerza respecto de la elección de referencia del caso, con efectos geográficos por región y provincia. La banda sale de simulaciones con orden aleatorio y sesgado.",
+    "Las fuerzas agrupan listas según config/ar/agrupaciones.yaml: el peronismo nacional (Frente para la Victoria, Frente de Todos, Unión por la Patria, Fuerza Patria y sus etiquetas provinciales), Cambiemos y Juntos por el Cambio, La Libertad Avanza y el Frente de Izquierda. Los partidos provinciales quedan en otros aunque se alíen en el Congreso.",
+    "Los porcentajes se calculan sobre los votos afirmativos válidos (sin blancos ni nulos), como la regla presidencial argentina.",
+    "Las relaciones entre variables de la pestaña de análisis comparan departamentos, no personas: que los departamentos con más universitarios voten de cierta manera no implica que los universitarios lo hagan (falacia ecológica)."
+  ]
+}
